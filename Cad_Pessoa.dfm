@@ -187,6 +187,25 @@ object FCad_Pessoa: TFCad_Pessoa
       'PESSOA.SEXO,'
       'PESSOA.CD_CATEGORIA, '
       'PESSOA.NR_CORRIDA,'
+      'PESSOA.TIPO,'
+      'PESSOA.ENDERECO,'
+      'PESSOA.NUMERO,'
+      'PESSOA.CODMUN,'
+      'PESSOA.UF,'
+      'PESSOA.EMPRESA,'
+      'PESSOA.CNPJ,'
+      'PESSOA.IE,'
+      'PESSOA.CEP,'
+      'PESSOA.RAZAO,'
+      'PESSOA.MUNICIPIO,'
+      'PESSOA.BAIRRO,'
+      'PESSOA.FORN,'
+      'PESSOA.FUN,'
+      'PESSOA.CLI,'
+      'PESSOA.FAB,'
+      'PESSOA.TRAN,    '
+      'PESSOA.ADM,'
+      'PESSOA.ATIVO,'
       'CATEGORIA.DS_CATEGORIA'
       ''
       'FROM'
@@ -238,10 +257,121 @@ object FCad_Pessoa: TFCad_Pessoa
       Size = 100
     end
     object QPessoaCODIGO: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'CODIGO'
       Origin = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+    end
+    object QPessoaTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      Required = True
+      Size = 10
+    end
+    object QPessoaENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Origin = 'ENDERECO'
+      Required = True
+      Size = 50
+    end
+    object QPessoaNUMERO: TStringField
+      FieldName = 'NUMERO'
+      Origin = 'NUMERO'
+      Required = True
+      Size = 10
+    end
+    object QPessoaCODMUN: TIntegerField
+      FieldName = 'CODMUN'
+      Origin = 'CODMUN'
+      Required = True
+    end
+    object QPessoaUF: TStringField
+      FieldName = 'UF'
+      Origin = 'UF'
+      Required = True
+      Size = 2
+    end
+    object QPessoaEMPRESA: TSmallintField
+      FieldName = 'EMPRESA'
+      Origin = 'EMPRESA'
+      Required = True
+    end
+    object QPessoaCNPJ: TStringField
+      FieldName = 'CNPJ'
+      Origin = 'CNPJ'
+      Required = True
+    end
+    object QPessoaIE: TStringField
+      FieldName = 'IE'
+      Origin = 'IE'
+      Required = True
+    end
+    object QPessoaCEP: TStringField
+      FieldName = 'CEP'
+      Origin = 'CEP'
+      Required = True
+      Size = 8
+    end
+    object QPessoaRAZAO: TStringField
+      FieldName = 'RAZAO'
+      Origin = 'RAZAO'
+      Required = True
+      Size = 100
+    end
+    object QPessoaMUNICIPIO: TStringField
+      FieldName = 'MUNICIPIO'
+      Origin = 'MUNICIPIO'
+      Required = True
+      Size = 35
+    end
+    object QPessoaBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+      Origin = 'BAIRRO'
+      Required = True
+      Size = 35
+    end
+    object QPessoaFORN: TStringField
+      FieldName = 'FORN'
+      Origin = 'FORN'
+      Required = True
+      Size = 1
+    end
+    object QPessoaFUN: TStringField
+      FieldName = 'FUN'
+      Origin = 'FUN'
+      Required = True
+      Size = 1
+    end
+    object QPessoaCLI: TStringField
+      FieldName = 'CLI'
+      Origin = 'CLI'
+      Required = True
+      Size = 1
+    end
+    object QPessoaFAB: TStringField
+      FieldName = 'FAB'
+      Origin = 'FAB'
+      Required = True
+      Size = 1
+    end
+    object QPessoaTRAN: TStringField
+      FieldName = 'TRAN'
+      Origin = 'TRAN'
+      Required = True
+      Size = 1
+    end
+    object QPessoaADM: TStringField
+      FieldName = 'ADM'
+      Origin = 'ADM'
+      Required = True
+      Size = 1
+    end
+    object QPessoaATIVO: TStringField
+      FieldName = 'ATIVO'
+      Origin = 'ATIVO'
+      Required = True
+      Size = 1
     end
   end
   object SPessoa: TDataSource
@@ -295,17 +425,11 @@ object FCad_Pessoa: TFCad_Pessoa
         Size = 100
         Value = Null
       end>
-    object IntegerField1: TIntegerField
-      FieldName = 'CD_CATEGORIA'
-      Origin = 'CD_CATEGORIA'
+    object QValidaNumeroCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
-    end
-    object StringField1: TStringField
-      FieldName = 'DS_CATEGORIA'
-      Origin = 'DS_CATEGORIA'
-      Required = True
-      Size = 100
     end
   end
 end

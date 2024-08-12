@@ -37,10 +37,28 @@ type
     lbl5: TLabel;
     edtNR_CORRIDA: TDBEdit;
     QPessoaNR_CORRIDA: TStringField;
-    QPessoaCODIGO: TIntegerField;
     QValidaNumero: TFDQuery;
-    IntegerField1: TIntegerField;
-    StringField1: TStringField;
+    QValidaNumeroCODIGO: TIntegerField;
+    QPessoaCODIGO: TIntegerField;
+    QPessoaTIPO: TStringField;
+    QPessoaENDERECO: TStringField;
+    QPessoaNUMERO: TStringField;
+    QPessoaCODMUN: TIntegerField;
+    QPessoaUF: TStringField;
+    QPessoaEMPRESA: TSmallintField;
+    QPessoaCNPJ: TStringField;
+    QPessoaIE: TStringField;
+    QPessoaCEP: TStringField;
+    QPessoaRAZAO: TStringField;
+    QPessoaMUNICIPIO: TStringField;
+    QPessoaBAIRRO: TStringField;
+    QPessoaFORN: TStringField;
+    QPessoaFUN: TStringField;
+    QPessoaCLI: TStringField;
+    QPessoaFAB: TStringField;
+    QPessoaTRAN: TStringField;
+    QPessoaADM: TStringField;
+    QPessoaATIVO: TStringField;
     procedure FormShow(Sender: TObject);
     procedure QPessoaAfterPost(DataSet: TDataSet);
     procedure QPessoaBeforePost(DataSet: TDataSet);
@@ -96,6 +114,8 @@ QPessoa.Open;
 end;
 
 procedure TFCad_Pessoa.QPessoaBeforePost(DataSet: TDataSet);
+var
+  q: TFDQuery;
 begin
 if QPessoaFANTASIA.AsString = EmptyStr then
   raise Exception.Create('Informe o nome da pessoa!');
@@ -107,6 +127,34 @@ if QPessoaNR_CORRIDA.AsString = EmptyStr then
   raise Exception.Create('Informe um número!');
 if not ValidaNumero then
   raise Exception.Create('Número ja cadastrado!');
+
+q := tfdquery.Create(nil);
+q.Connection := DMD_Dados.con;
+try
+  q.Open('SELECT GEN_ID(GEN_PESSOA, 1) FROM RDB$DATABASE;');
+  QPessoaCODIGO.AsInteger := q.FieldByName('GEN_ID').AsInteger;
+  QPessoaTIPO.AsString := 'FISICA';
+  QPessoaENDERECO.AsString := 'NAO INFORMADO';
+  QPessoaNUMERO.AsString := 'NAO INFORMADO';
+  QPessoaCODMUN.AsInteger := 1;
+  QPessoaUF.AsString := 'RS';
+  QPessoaEMPRESA.AsInteger := 1;
+  QPessoaCNPJ.AsString := 'NAO INFORMADO';
+  QPessoaIE.AsString := 'NAO INFORMADO';
+  QPessoaCEP.AsString := 'NAO INFORMADO';
+  QPessoaRAZAO.AsString := 'NAO INFORMADO';
+  QPessoaMUNICIPIO.AsString := 'NAO INFORMADO';
+  QPessoaBAIRRO.AsString := 'NAO INFORMADO';
+  QPessoaFORN.AsString := 'NAO INFORMADO';
+  QPessoaFUN.AsString := 'NAO INFORMADO';
+  QPessoaCLI.AsString := 'NAO INFORMADO';
+  QPessoaFAB.AsString := 'NAO INFORMADO';
+  QPessoaTRAN.AsString := 'NAO INFORMADO';
+  QPessoaADM.AsString := 'NAO INFORMADO';
+  QPessoaATIVO.AsString := 'S';
+finally
+  FreeAndNil(q);
+end;
 end;
 
 function TFCad_Pessoa.ValidaNumero: Boolean;
