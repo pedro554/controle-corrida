@@ -13,6 +13,7 @@ object FPrincipal: TFPrincipal
   Menu = mm1
   Position = poScreenCenter
   WindowState = wsMaximized
+  OnCreate = FormCreate
   TextHeight = 15
   object mm1: TMainMenu
     Left = 112
@@ -31,6 +32,10 @@ object FPrincipal: TFPrincipal
     object ControlarProva1: TMenuItem
       Caption = 'Controlar Prova'
       OnClick = ControlarProva1Click
+    end
+    object ImprimirResultado1: TMenuItem
+      Caption = 'Imprimir Resultado'
+      OnClick = ImprimirResultado1Click
     end
   end
 end

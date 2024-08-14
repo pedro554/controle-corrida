@@ -3,6 +3,7 @@ unit Principal;
 interface
 
 uses
+  F_FiltroImpressao,
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
 
@@ -13,10 +14,14 @@ type
     Categorias1: TMenuItem;
     Pessoa1: TMenuItem;
     ControlarProva1: TMenuItem;
+    ImprimirResultado1: TMenuItem;
     procedure Categorias1Click(Sender: TObject);
     procedure Pessoa1Click(Sender: TObject);
     procedure ControlarProva1Click(Sender: TObject);
+    procedure ImprimirResultado1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
+    FFiltroImpressao: TFFiltroImpressao;
     { Private declarations }
   public
     { Public declarations }
@@ -52,6 +57,27 @@ try
 finally
   FreeAndNil(FCad_ControleProva);
 end;
+end;
+
+procedure TFPrincipal.FormCreate(Sender: TObject);
+begin
+  if Date > StrToDate('14/09/2024') then
+  begin
+    Application.MessageBox('Versão de DEMONSTRAÇÃO vencida, entre em contato com o desenvolvedor para renovar!', 'Controle Prova', 0);
+    Application.Terminate;
+  end;
+end;
+
+procedure TFPrincipal.ImprimirResultado1Click(Sender: TObject);
+var
+  FFiltroImpressao: TFFiltroImpressao;
+begin
+  FFiltroImpressao := TFFiltroImpressao.Create(Self);
+  try
+    FFiltroImpressao.ShowModal;
+  finally
+    FFiltroImpressao.Free;
+  end;
 end;
 
 procedure TFPrincipal.Pessoa1Click(Sender: TObject);

@@ -23,7 +23,7 @@ object FCad_ControleProva: TFCad_ControleProva
     Height = 89
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 1101
+    ExplicitWidth = 1092
     object lblTempo: TLabel
       Left = 1
       Top = 1
@@ -38,9 +38,8 @@ object FCad_ControleProva: TFCad_ControleProva
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 2
-      ExplicitTop = 3
-      ExplicitWidth = 1091
+      ExplicitWidth = 246
+      ExplicitHeight = 89
     end
   end
   object JvDBGrid1: TJvDBGrid
@@ -125,8 +124,7 @@ object FCad_ControleProva: TFCad_ControleProva
     Height = 465
     Align = alLeft
     TabOrder = 2
-    ExplicitTop = 89
-    ExplicitHeight = 472
+    ExplicitHeight = 461
     object btnIniciar: TButton
       Left = 1
       Top = 1
@@ -137,9 +135,6 @@ object FCad_ControleProva: TFCad_ControleProva
       TabOrder = 0
       TabStop = False
       OnClick = btnIniciarClick
-      ExplicitLeft = 8
-      ExplicitTop = 21
-      ExplicitWidth = 120
     end
     object btnParar: TButton
       Left = 1
@@ -151,9 +146,7 @@ object FCad_ControleProva: TFCad_ControleProva
       TabOrder = 1
       TabStop = False
       OnClick = btnPararClick
-      ExplicitLeft = 11
-      ExplicitTop = 338
-      ExplicitWidth = 120
+      ExplicitTop = 385
     end
     object btnSair: TButton
       Left = 1
@@ -165,9 +158,7 @@ object FCad_ControleProva: TFCad_ControleProva
       TabOrder = 2
       TabStop = False
       OnClick = btnSairClick
-      ExplicitLeft = 11
-      ExplicitTop = 424
-      ExplicitWidth = 120
+      ExplicitTop = 435
     end
     object btnRemover: TButton
       Left = 1
@@ -179,9 +170,7 @@ object FCad_ControleProva: TFCad_ControleProva
       TabOrder = 3
       TabStop = False
       OnClick = btnRemoverClick
-      ExplicitLeft = 11
-      ExplicitTop = 393
-      ExplicitWidth = 120
+      ExplicitTop = 410
     end
     object btnAjustaPosGeral: TButton
       Left = 1
@@ -193,9 +182,6 @@ object FCad_ControleProva: TFCad_ControleProva
       TabOrder = 4
       TabStop = False
       OnClick = btnAjustaPosGeralClick
-      ExplicitLeft = 8
-      ExplicitTop = 52
-      ExplicitWidth = 120
     end
   end
   object Panel3: TPanel
@@ -205,62 +191,58 @@ object FCad_ControleProva: TFCad_ControleProva
     Height = 41
     Align = alTop
     TabOrder = 3
-    ExplicitLeft = 184
-    ExplicitTop = 224
-    ExplicitWidth = 849
+    ExplicitWidth = 1092
     DesignSize = (
       1094
       41)
     object Label1: TLabel
-      Left = 262
+      Left = 256
       Top = 11
-      Width = 45
+      Width = 48
       Height = 15
       Anchors = [akLeft, akTop, akRight, akBottom]
       Caption = 'N'#250'mero'
-      ExplicitWidth = 44
     end
     object Label2: TLabel
-      Left = 614
+      Left = 608
       Top = 11
-      Width = 82
+      Width = 87
       Height = 15
       Anchors = [akLeft, akTop, akRight, akBottom]
       Caption = 'Filtro Categoria'
-      ExplicitWidth = 81
     end
     object btnSalvar: TButton
       Left = 439
       Top = 7
-      Width = 121
+      Width = 119
       Height = 25
       Anchors = [akLeft, akTop, akRight, akBottom]
       Caption = 'Salvar'
       TabOrder = 0
       OnClick = btnSalvarClick
-      ExplicitWidth = 120
+      ExplicitWidth = 117
     end
     object NR_NUMERO: TEdit
       Left = 312
       Top = 8
-      Width = 122
+      Width = 120
       Height = 23
       Anchors = [akLeft, akTop, akRight, akBottom]
       CharCase = ecUpperCase
       TabOrder = 1
-      ExplicitWidth = 121
+      ExplicitWidth = 118
     end
     object cbFiltro: TJvComboBox
       Left = 701
       Top = 8
-      Width = 251
+      Width = 249
       Height = 23
       Style = csDropDownList
       Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 2
       Text = ''
       OnChange = cbFiltroChange
-      ExplicitWidth = 250
+      ExplicitWidth = 247
     end
   end
   object Timer: TTimer

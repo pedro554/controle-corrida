@@ -8,7 +8,9 @@ uses
   Cad_Pessoa in 'Cad_Pessoa.pas' {FCad_Pessoa},
   Cad_ControleProva in 'Cad_ControleProva.pas' {FCad_ControleProva},
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  DM_Impressao in 'DM_Impressao.pas' {DMD_Impressao: TDataModule},
+  F_FiltroImpressao in 'F_FiltroImpressao.pas' {FFiltroImpressao};
 
 {$R *.res}
 

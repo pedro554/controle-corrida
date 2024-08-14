@@ -25,6 +25,9 @@ type
     edtPsq: TEdit;
     lbl2: TLabel;
     btnPesquisar: TButton;
+    lbl3: TLabel;
+    NR_KILOMETRAGEM: TDBEdit;
+    QCategoriaNR_KILOMETRAGEM: TCurrencyField;
     procedure FormShow(Sender: TObject);
     procedure QCategoriaBeforePost(DataSet: TDataSet);
     procedure QCategoriaAfterPost(DataSet: TDataSet);

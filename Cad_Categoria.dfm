@@ -15,7 +15,7 @@ object FCad_Categoria: TFCad_Categoria
   TextHeight = 15
   object lbl1: TLabel
     Left = 137
-    Top = 309
+    Top = 295
     Width = 51
     Height = 15
     Caption = 'Descri'#231#227'o'
@@ -27,9 +27,16 @@ object FCad_Categoria: TFCad_Categoria
     Height = 15
     Caption = 'Pesquisar'
   end
+  object lbl3: TLabel
+    Left = 113
+    Top = 319
+    Width = 75
+    Height = 15
+    Caption = 'Kilometragem'
+  end
   object edtDS_CATEGORIA: TDBEdit
     Left = 194
-    Top = 306
+    Top = 292
     Width = 240
     Height = 23
     CharCase = ecUpperCase
@@ -63,7 +70,14 @@ object FCad_Categoria: TFCad_Categoria
         Expanded = False
         FieldName = 'DS_CATEGORIA'
         Title.Caption = 'Descri'#231#227'o'
-        Width = 595
+        Width = 536
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NR_KILOMETRAGEM'
+        Title.Caption = 'Km'
+        Width = 58
         Visible = True
       end>
   end
@@ -76,7 +90,7 @@ object FCad_Categoria: TFCad_Categoria
     DataSource = SCategoria
     VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
     ConfirmDelete = False
-    TabOrder = 4
+    TabOrder = 5
   end
   object edtPsq: TEdit
     Left = 194
@@ -93,6 +107,16 @@ object FCad_Categoria: TFCad_Categoria
     Caption = 'Pesquisar'
     TabOrder = 1
     OnClick = btnPesquisarClick
+  end
+  object NR_KILOMETRAGEM: TDBEdit
+    Left = 194
+    Top = 316
+    Width = 103
+    Height = 23
+    CharCase = ecUpperCase
+    DataField = 'NR_KILOMETRAGEM'
+    DataSource = SCategoria
+    TabOrder = 4
   end
   object QCategoria: TFDQuery
     BeforePost = QCategoriaBeforePost
@@ -129,6 +153,11 @@ object FCad_Categoria: TFCad_Categoria
     end
     object QCategoriaCD_CATEGORIA: TAutoIncField
       FieldName = 'CD_CATEGORIA'
+    end
+    object QCategoriaNR_KILOMETRAGEM: TCurrencyField
+      FieldName = 'NR_KILOMETRAGEM'
+      Origin = 'NR_KILOMETRAGEM'
+      currency = False
     end
   end
   object SCategoria: TDataSource

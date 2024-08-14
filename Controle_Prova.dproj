@@ -125,6 +125,15 @@
             <Form>FCad_ControleProva</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="DM_Impressao.pas">
+            <Form>DMD_Impressao</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="F_FiltroImpressao.pas">
+            <Form>FFiltroImpressao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
