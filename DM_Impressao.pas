@@ -36,6 +36,7 @@ type
     TRelNR_POSICAO: TIntegerField;
     TRelDT_PACE: TTimeField;
     QRelNR_KILOMETRAGEM: TCurrencyField;
+    TRelDS_CATEGORIACABECALHO: TStringField;
   private
     procedure CarregaDados(ACategoria: Integer);
     { Private declarations }
@@ -86,18 +87,14 @@ begin
     TRelDT_INICIO.AsDateTime := QRelDT_INICIO.AsDateTime;
     TRelDT_FIM.AsDateTime := QRelDT_FIM.AsDateTime;
     TRelST_FINALIZADA.AsBoolean := QRelST_FINALIZADA.AsBoolean;
-    if ACategoria <> 0 then
-    begin
-      TRelCD_CATEGORIA.AsInteger := QRelCD_CATEGORIA.AsInteger;
-      TRelDS_CATEGORIA.AsString := QRelDS_CATEGORIA.AsString;
-    end
-    else
-    begin
-      TRelCD_CATEGORIA.AsInteger := 0;
-      TRelDS_CATEGORIA.AsString := 'Geral';
-    end;
+    TRelCD_CATEGORIA.AsInteger := QRelCD_CATEGORIA.AsInteger;
+    TRelDS_CATEGORIA.AsString := QRelDS_CATEGORIA.AsString;
     TRelFANTASIA.AsString := QRelFANTASIA.AsString;
     TRelDT_PACE.AsDateTime := TRelDT_TEMPO.AsDateTime / QRelNR_KILOMETRAGEM.AsFloat;
+    if ACategoria <> 0 then
+      TRelDS_CATEGORIACABECALHO.AsString := QRelDS_CATEGORIA.AsString
+    else
+      TRelDS_CATEGORIACABECALHO.AsString := 'Geral';
     TRel.Post;
     QRel.Next;
     inc(i);

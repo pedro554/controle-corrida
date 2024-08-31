@@ -89,7 +89,7 @@ object DMD_Impressao: TDMD_Impressao
     PrintOptions.Printer = 'Padr'#227'o'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45516.559475544000000000
-    ReportOptions.LastChange = 45518.692246828700000000
+    ReportOptions.LastChange = 45534.876405057870000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -135,7 +135,6 @@ object DMD_Impressao: TDMD_Impressao
           Top = 18.897650000000000000
           Width = 771.024120000000000000
           Height = 37.795300000000000000
-          DataField = 'DS_CATEGORIA'
           DataSet = SRel
           DataSetName = 'Dados'
           Font.Charset = DEFAULT_CHARSET
@@ -146,15 +145,15 @@ object DMD_Impressao: TDMD_Impressao
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8W = (
-            '[Dados."DS_CATEGORIA"]')
+            '[Dados."DS_CATEGORIACABECALHO"]')
           ParentFont = False
         end
         object Memo1: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 113.385900000000000000
+          Left = 68.031540000000000000
           Top = 56.692950000000000000
-          Width = 113.385900000000000000
+          Width = 71.811070000000000000
           Height = 18.897650000000000000
           DataSet = SRel
           DataSetName = 'Dados'
@@ -172,9 +171,9 @@ object DMD_Impressao: TDMD_Impressao
         object Memo2: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 226.771800000000000000
+          Left = 139.842610000000000000
           Top = 56.692950000000000000
-          Width = 325.039580000000000000
+          Width = 272.126160000000000000
           Height = 18.897650000000000000
           DataSet = SRel
           DataSetName = 'Dados'
@@ -192,9 +191,9 @@ object DMD_Impressao: TDMD_Impressao
         object Memo3: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 551.811380000000000000
+          Left = 589.606680000000000000
           Top = 56.692950000000000000
-          Width = 113.385900000000000000
+          Width = 86.929190000000000000
           Height = 18.897650000000000000
           DataSet = SRel
           DataSetName = 'Dados'
@@ -213,7 +212,7 @@ object DMD_Impressao: TDMD_Impressao
           IndexTag = 1
           AllowVectorExport = True
           Top = 56.692950000000000000
-          Width = 113.385900000000000000
+          Width = 68.031540000000000000
           Height = 18.897650000000000000
           DataSet = SRel
           DataSetName = 'Dados'
@@ -248,9 +247,9 @@ object DMD_Impressao: TDMD_Impressao
         object Memo9: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 665.197280000000000000
+          Left = 676.535870000000000000
           Top = 56.692950000000000000
-          Width = 105.826840000000000000
+          Width = 94.488250000000000000
           Height = 18.897650000000000000
           DataSet = SRel
           DataSetName = 'Dados'
@@ -265,88 +264,13 @@ object DMD_Impressao: TDMD_Impressao
             'Pace')
           ParentFont = False
         end
-      end
-      object MasterData1: TfrxMasterData
-        FillType = ftBrush
-        FillGap.Top = 0
-        FillGap.Left = 0
-        FillGap.Bottom = 0
-        FillGap.Right = 0
-        Frame.Typ = []
-        Height = 18.897650000000000000
-        Top = 117.165430000000000000
-        Width = 771.024120000000000000
-        DataSet = SRel
-        DataSetName = 'Dados'
-        RowCount = 0
-        object Memo5: TfrxMemoView
+        object Memo11: TfrxMemoView
+          IndexTag = 1
           AllowVectorExport = True
-          Width = 113.385900000000000000
+          Left = 411.968770000000000000
+          Top = 56.692950000000000000
+          Width = 177.637910000000000000
           Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haCenter
-          Memo.UTF8W = (
-            '[Dados."NR_POSICAO"]')
-          ParentFont = False
-        end
-        object Memo6: TfrxMemoView
-          AllowVectorExport = True
-          Left = 113.385900000000000000
-          Width = 113.385900000000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haCenter
-          Memo.UTF8W = (
-            '[Dados."NR_NUMERO"]')
-          ParentFont = False
-        end
-        object Memo7: TfrxMemoView
-          AllowVectorExport = True
-          Left = 226.771800000000000000
-          Width = 325.039580000000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          Memo.UTF8W = (
-            '[Dados."FANTASIA"]')
-          ParentFont = False
-        end
-        object Memo8: TfrxMemoView
-          AllowVectorExport = True
-          Left = 551.811380000000000000
-          Width = 113.385900000000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haCenter
-          Memo.UTF8W = (
-            '[Dados."DT_TEMPO"]')
-          ParentFont = False
-        end
-        object Memo10: TfrxMemoView
-          AllowVectorExport = True
-          Left = 665.197280000000000000
-          Width = 105.826840000000000000
-          Height = 18.897650000000000000
-          DataField = 'DT_PACE'
           DataSet = SRel
           DataSetName = 'Dados'
           Font.Charset = DEFAULT_CHARSET
@@ -357,7 +281,121 @@ object DMD_Impressao: TDMD_Impressao
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8W = (
+            'Categoria')
+          ParentFont = False
+        end
+      end
+      object MasterData1: TfrxMasterData
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 15.118120000000000000
+        Top = 117.165430000000000000
+        Width = 771.024120000000000000
+        DataSet = SRel
+        DataSetName = 'Dados'
+        RowCount = 0
+        object Memo5: TfrxMemoView
+          AllowVectorExport = True
+          Width = 68.031540000000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[Dados."NR_POSICAO"]')
+          ParentFont = False
+        end
+        object Memo6: TfrxMemoView
+          AllowVectorExport = True
+          Left = 68.031540000000000000
+          Width = 71.811070000000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[Dados."NR_NUMERO"]')
+          ParentFont = False
+        end
+        object Memo7: TfrxMemoView
+          AllowVectorExport = True
+          Left = 139.842610000000000000
+          Width = 272.126160000000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[Dados."FANTASIA"]')
+          ParentFont = False
+        end
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Left = 589.606680000000000000
+          Width = 86.929190000000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[Dados."DT_TEMPO"]')
+          ParentFont = False
+        end
+        object Memo10: TfrxMemoView
+          AllowVectorExport = True
+          Left = 676.535870000000000000
+          Width = 94.488250000000000000
+          Height = 15.118120000000000000
+          DataField = 'DT_PACE'
+          DataSet = SRel
+          DataSetName = 'Dados'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8W = (
             '[Dados."DT_PACE"]')
+          ParentFont = False
+        end
+        object Memo12: TfrxMemoView
+          AllowVectorExport = True
+          Left = 411.968770000000000000
+          Width = 177.637910000000000000
+          Height = 15.118120000000000000
+          DataField = 'DS_CATEGORIA'
+          DataSet = SRel
+          DataSetName = 'Dados'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[Dados."DS_CATEGORIA"]')
           ParentFont = False
         end
       end
@@ -376,7 +414,8 @@ object DMD_Impressao: TDMD_Impressao
       'DS_CATEGORIA=DS_CATEGORIA'
       'FANTASIA=FANTASIA'
       'NR_POSICAO=NR_POSICAO'
-      'DT_PACE=DT_PACE')
+      'DT_PACE=DT_PACE'
+      'DS_CATEGORIACABECALHO=DS_CATEGORIACABECALHO')
     DataSet = TRel
     BCDToCurrency = False
     DataSetOptions = []
@@ -468,6 +507,10 @@ object DMD_Impressao: TDMD_Impressao
     end
     object TRelDT_PACE: TTimeField
       FieldName = 'DT_PACE'
+    end
+    object TRelDS_CATEGORIACABECALHO: TStringField
+      FieldName = 'DS_CATEGORIACABECALHO'
+      Size = 255
     end
   end
 end
