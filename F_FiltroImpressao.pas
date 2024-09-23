@@ -10,7 +10,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error,
   FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async,
   FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  JvExStdCtrls, JvCombobox, JvDBCombobox, JvMemoryDataset;
+  JvExStdCtrls, JvCombobox, JvDBCombobox, JvMemoryDataset, Vcl.DBCtrls;
 
 type
   TFFiltroImpressao = class(TForm)
@@ -21,6 +21,11 @@ type
     QCategoriaDS_CATEGORIA: TStringField;
     cbCategoria: TJvDBComboBox;
     SCategoria: TDataSource;
+    lbl2: TLabel;
+    cbbSexo: TComboBox;
+    lbl3: TLabel;
+    QCategoriaNR_KILOMETRAGEM: TCurrencyField;
+    cbbKm: TComboBox;
     procedure btnImprimirClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -44,7 +49,9 @@ procedure TFFiltroImpressao.btnImprimirClick(Sender: TObject);
 begin
   DMDImpressao := TDMD_Impressao.Create(Self);
   try
-    DMDImpressao.Imprime(cbCategoria.Values[cbCategoria.ItemIndex].ToInteger);
+    DMDImpressao.Imprime(cbCategoria.Values[cbCategoria.ItemIndex].ToInteger,
+                         cbbSexo.Text,
+                         cbbKm.Text);
   finally
     DMDImpressao.Free;
   end;
@@ -59,14 +66,24 @@ cbCategoria.Items.Clear;
 cbCategoria.Items.Add('Geral');
 cbCategoria.Values.Add('0');
 
+cbbKm.Items.Clear;
+cbbKm.Items.Add('Todos');
+
 while not QCategoria.Eof do
 begin
   cbCategoria.Items.Add(QCategoriaDS_CATEGORIA.AsString);
   cbCategoria.Values.Add(QCategoriaCD_CATEGORIA.AsString);
+
+  if cbbKm.Items.IndexOf(QCategoriaNR_KILOMETRAGEM.AsString) = -1 then
+  begin
+    cbbKm.Items.Add(QCategoriaNR_KILOMETRAGEM.AsString);
+  end;
+
   QCategoria.Next;
 end;
 
 cbCategoria.ItemIndex := 0;
+cbbKm.ItemIndex := 0;
 end;
 
 procedure TFFiltroImpressao.FormCreate(Sender: TObject);

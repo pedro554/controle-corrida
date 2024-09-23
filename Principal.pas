@@ -61,7 +61,7 @@ end;
 
 procedure TFPrincipal.FormCreate(Sender: TObject);
 begin
-  if Date > StrToDate('14/09/2024') then
+  if Date > StrToDate('30/09/2024') then
   begin
     Application.MessageBox('Versão de DEMONSTRAÇÃO vencida, entre em contato com o desenvolvedor para renovar!', 'Controle Prova', 0);
     Application.Terminate;

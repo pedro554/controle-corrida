@@ -37,11 +37,12 @@ type
     TRelDT_PACE: TTimeField;
     QRelNR_KILOMETRAGEM: TCurrencyField;
     TRelDS_CATEGORIACABECALHO: TStringField;
+    TRelSEXO: TStringField;
   private
-    procedure CarregaDados(ACategoria: Integer);
+    procedure CarregaDados(ACategoria: Integer; ASexo: String; AKm: String);
     { Private declarations }
   public
-    procedure Imprime(ACategoria: Integer);
+    procedure Imprime(ACategoria: Integer; ASexo: String; AKm: String);
     { Public declarations }
   end;
 
@@ -56,7 +57,7 @@ implementation
 
 { TDMD_Impressao }
 
-procedure TDMD_Impressao.CarregaDados(ACategoria: Integer);
+procedure TDMD_Impressao.CarregaDados(ACategoria: Integer; ASexo: String; AKm: String);
 var
   i: integer;
 begin
@@ -64,11 +65,18 @@ begin
   QRel.SQL.Clear;
   QRel.SQL.Add('SELECT PROVA.*, PESSOA.CD_CATEGORIA, PESSOA.FANTASIA, CATEGORIA.DS_CATEGORIA, CATEGORIA.NR_KILOMETRAGEM FROM PROVA ');
   QRel.SQL.Add('LEFT JOIN PESSOA ON PESSOA.NR_CORRIDA = PROVA.NR_NUMERO LEFT JOIN CATEGORIA ON CATEGORIA.CD_CATEGORIA = PESSOA.CD_CATEGORIA ');
-  if ACategoria <> 0 then
+  QRel.SQL.Add('WHERE PESSOA.SEXO LIKE :SEXO ');
+  if (ACategoria <> 0) then
   begin
-    QRel.SQL.Add('WHERE PESSOA.CD_CATEGORIA = :CD_CATEGORIA ');
+    QRel.SQL.Add('AND PESSOA.CD_CATEGORIA = :CD_CATEGORIA ');
     QRel.ParamByName('CD_CATEGORIA').AsInteger := ACategoria;
   end;
+  if AKm <> 'Todos' then
+  begin
+   QRel.SQL.Add('AND CATEGORIA.NR_KILOMETRAGEM = :NR_KILOMETRAGEM ');
+   QRel.ParamByName('NR_KILOMETRAGEM').AsString := AKm;
+  end;
+  QRel.ParamByName('SEXO').AsString := '%' + ASexo;
   QRel.Open;
 
   if QRel.IsEmpty then
@@ -94,16 +102,17 @@ begin
     if ACategoria <> 0 then
       TRelDS_CATEGORIACABECALHO.AsString := QRelDS_CATEGORIA.AsString
     else
-      TRelDS_CATEGORIACABECALHO.AsString := 'Geral';
+      TRelDS_CATEGORIACABECALHO.AsString := TRelDS_CATEGORIACABECALHO.AsString + ' Geral';
+    TRelSEXO.AsString := ASexo;
     TRel.Post;
     QRel.Next;
     inc(i);
   end;
 end;
 
-procedure TDMD_Impressao.Imprime(ACategoria: Integer);
+procedure TDMD_Impressao.Imprime(ACategoria: Integer; ASexo: String; AKm: String);
 begin
-  CarregaDados(ACategoria);
+  CarregaDados(ACategoria, ASexo, AKm);
   Relatorio.ShowReport;
 end;
 
