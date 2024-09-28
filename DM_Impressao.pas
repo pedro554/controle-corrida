@@ -38,8 +38,20 @@ type
     QRelNR_KILOMETRAGEM: TCurrencyField;
     TRelDS_CATEGORIACABECALHO: TStringField;
     TRelSEXO: TStringField;
+    QTopGeral: TFDQuery;
+    QTopGeralNR_NUMERO: TStringField;
+    QTopGeralDT_TEMPO: TTimeField;
+    QTopGeralDT_INICIO: TTimeField;
+    QTopGeralDT_FIM: TTimeField;
+    QTopGeralNR_POSICAOGERAL: TIntegerField;
+    QTopGeralST_FINALIZADA: TBooleanField;
+    QTopGeralCD_CATEGORIA: TIntegerField;
+    QTopGeralFANTASIA: TStringField;
+    QTopGeralDS_CATEGORIA: TStringField;
+    QTopGeralNR_KILOMETRAGEM: TCurrencyField;
   private
     procedure CarregaDados(ACategoria: Integer; ASexo: String; AKm: String);
+    procedure CarregaTopGeral(ASexo: String; AKm: String);
     { Private declarations }
   public
     procedure Imprime(ACategoria: Integer; ASexo: String; AKm: String);
@@ -71,13 +83,12 @@ begin
     QRel.SQL.Add('AND PESSOA.CD_CATEGORIA = :CD_CATEGORIA ');
     QRel.ParamByName('CD_CATEGORIA').AsInteger := ACategoria;
   end;
-  if AKm <> 'Todos' then
-  begin
-   QRel.SQL.Add('AND CATEGORIA.NR_KILOMETRAGEM = :NR_KILOMETRAGEM ');
-   QRel.ParamByName('NR_KILOMETRAGEM').AsString := AKm;
-  end;
+  QRel.SQL.Add('AND CATEGORIA.NR_KILOMETRAGEM = :NR_KILOMETRAGEM ');
+  QRel.ParamByName('NR_KILOMETRAGEM').AsString := AKm;
   QRel.ParamByName('SEXO').AsString := '%' + ASexo;
   QRel.Open;
+
+  CarregaTopGeral(ASexo, AKm);
 
   if QRel.IsEmpty then
     raise Exception.Create('Nenhum registro encontrado!');
@@ -88,6 +99,15 @@ begin
   i := 1;
   while not QRel.Eof do
   begin
+    if ACategoria <> 0 then
+    begin
+      if QTopGeral.Locate('NR_NUMERO', QRelNR_NUMERO.AsString, []) then
+      begin
+        QRel.Next;
+        Continue;
+      end;
+    end;
+
     TRel.Append;
     TRelNR_POSICAO.AsInteger := i;
     TRelNR_NUMERO.AsString := QRelNR_NUMERO.AsString;
@@ -108,6 +128,16 @@ begin
     QRel.Next;
     inc(i);
   end;
+  if TRel.IsEmpty then
+    raise Exception.Create('Nenhum registro encontrado!');
+end;
+
+procedure TDMD_Impressao.CarregaTopGeral(ASexo, AKm: String);
+begin
+QTopGeral.Close;
+QTopGeral.ParamByName('SEXO').AsString := ASexo;
+QTopGeral.ParamByName('NR_KILOMETRAGEM').AsString := AKm;
+QTopGeral.Open;
 end;
 
 procedure TDMD_Impressao.Imprime(ACategoria: Integer; ASexo: String; AKm: String);

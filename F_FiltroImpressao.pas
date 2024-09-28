@@ -67,7 +67,6 @@ cbCategoria.Items.Add('Geral');
 cbCategoria.Values.Add('0');
 
 cbbKm.Items.Clear;
-cbbKm.Items.Add('Todos');
 
 while not QCategoria.Eof do
 begin

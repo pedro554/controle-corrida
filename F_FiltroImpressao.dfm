@@ -78,10 +78,6 @@ object FFiltroImpressao: TFFiltroImpressao
     Height = 23
     Style = csDropDownList
     TabOrder = 2
-    Items.Strings = (
-      ''
-      'MASCULINO'
-      'FEMININO')
   end
   object QCategoria: TFDQuery
     Connection = DMD_Dados.con

@@ -518,4 +518,98 @@ object DMD_Impressao: TDMD_Impressao
       Size = 10
     end
   end
+  object QTopGeral: TFDQuery
+    Connection = DMD_Dados.con
+    SQL.Strings = (
+      'SELECT'
+      '  PROVA.*,'
+      '  PESSOA.CD_CATEGORIA,'
+      '  PESSOA.FANTASIA,'
+      '  CATEGORIA.DS_CATEGORIA,'
+      '  CATEGORIA.NR_KILOMETRAGEM'
+      'FROM'
+      '  PROVA'
+      'LEFT JOIN PESSOA ON'
+      '  PESSOA.NR_CORRIDA = PROVA.NR_NUMERO'
+      'LEFT JOIN CATEGORIA ON'
+      '  CATEGORIA.CD_CATEGORIA = PESSOA.CD_CATEGORIA'
+      'WHERE '
+      '  PESSOA.SEXO LIKE :SEXO AND '
+      '  CATEGORIA.NR_KILOMETRAGEM = :NR_KILOMETRAGEM'
+      'ROWS 5')
+    Left = 136
+    Top = 160
+    ParamData = <
+      item
+        Name = 'SEXO'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 10
+        Value = Null
+      end
+      item
+        Name = 'NR_KILOMETRAGEM'
+        DataType = ftCurrency
+        Precision = 9
+        NumericScale = 3
+        ParamType = ptInput
+      end>
+    object QTopGeralNR_NUMERO: TStringField
+      FieldName = 'NR_NUMERO'
+      Origin = 'NR_NUMERO'
+      Required = True
+      Size = 100
+    end
+    object QTopGeralDT_TEMPO: TTimeField
+      FieldName = 'DT_TEMPO'
+      Origin = 'DT_TEMPO'
+    end
+    object QTopGeralDT_INICIO: TTimeField
+      FieldName = 'DT_INICIO'
+      Origin = 'DT_INICIO'
+    end
+    object QTopGeralDT_FIM: TTimeField
+      FieldName = 'DT_FIM'
+      Origin = 'DT_FIM'
+    end
+    object QTopGeralNR_POSICAOGERAL: TIntegerField
+      FieldName = 'NR_POSICAOGERAL'
+      Origin = 'NR_POSICAOGERAL'
+      Required = True
+    end
+    object QTopGeralST_FINALIZADA: TBooleanField
+      FieldName = 'ST_FINALIZADA'
+      Origin = 'ST_FINALIZADA'
+    end
+    object QTopGeralCD_CATEGORIA: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'CD_CATEGORIA'
+      Origin = 'CD_CATEGORIA'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QTopGeralFANTASIA: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'FANTASIA'
+      Origin = 'FANTASIA'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
+    end
+    object QTopGeralDS_CATEGORIA: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'DS_CATEGORIA'
+      Origin = 'DS_CATEGORIA'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 100
+    end
+    object QTopGeralNR_KILOMETRAGEM: TCurrencyField
+      AutoGenerateValue = arDefault
+      FieldName = 'NR_KILOMETRAGEM'
+      Origin = 'NR_KILOMETRAGEM'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+  end
 end
