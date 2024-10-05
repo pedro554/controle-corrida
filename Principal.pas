@@ -19,7 +19,6 @@ type
     procedure Pessoa1Click(Sender: TObject);
     procedure ControlarProva1Click(Sender: TObject);
     procedure ImprimirResultado1Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
   private
     FFiltroImpressao: TFFiltroImpressao;
     { Private declarations }
@@ -57,15 +56,6 @@ try
 finally
   FreeAndNil(FCad_ControleProva);
 end;
-end;
-
-procedure TFPrincipal.FormCreate(Sender: TObject);
-begin
-  if Date > StrToDate('30/09/2024') then
-  begin
-    Application.MessageBox('Versão de DEMONSTRAÇÃO vencida, entre em contato com o desenvolvedor para renovar!', 'Controle Prova', 0);
-    Application.Terminate;
-  end;
 end;
 
 procedure TFPrincipal.ImprimirResultado1Click(Sender: TObject);

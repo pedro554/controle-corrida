@@ -66,6 +66,7 @@ type
   private
     procedure CarregaCategoria;
     function ValidaNumero: Boolean;
+    function VerificaLetraEmNumeros(const Texto: string): Boolean;
     { Private declarations }
   public
     { Public declarations }
@@ -127,6 +128,8 @@ if QPessoaNR_CORRIDA.AsString = EmptyStr then
   raise Exception.Create('Informe um número!');
 if not ValidaNumero then
   raise Exception.Create('Número ja cadastrado!');
+if VerificaLetraEmNumeros(QPessoaNR_CORRIDA.AsString) then
+  raise Exception.Create('Informe apenas números para o campo "Número".');
 
 q := tfdquery.Create(nil);
 q.Connection := DMD_Dados.con;
@@ -164,6 +167,21 @@ QValidaNumero.ParamByName('NR_CORRIDA').AsString := QPessoaNR_CORRIDA.AsString;
 QValidaNumero.Open;
 
 Result := QValidaNumero.IsEmpty;
+end;
+
+function TFCad_Pessoa.VerificaLetraEmNumeros(const Texto: string): Boolean;
+var
+  i: Integer;
+begin
+  Result := False;
+  for i := 1 to Length(Texto) do
+  begin
+    if not (Texto[i] in ['0'..'9']) then
+    begin
+      Result := True;
+      Exit;
+    end;
+  end;
 end;
 
 end.

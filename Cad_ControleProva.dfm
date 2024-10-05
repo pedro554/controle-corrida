@@ -52,7 +52,7 @@ object FCad_ControleProva: TFCad_ControleProva
     DataSource = SProva
     DrawingStyle = gdsClassic
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
-    TabOrder = 1
+    TabOrder = 3
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -12
@@ -143,7 +143,7 @@ object FCad_ControleProva: TFCad_ControleProva
       Height = 25
       Align = alBottom
       Caption = 'Finalizar Prova'
-      TabOrder = 1
+      TabOrder = 2
       TabStop = False
       OnClick = btnPararClick
       ExplicitTop = 385
@@ -155,7 +155,7 @@ object FCad_ControleProva: TFCad_ControleProva
       Height = 25
       Align = alBottom
       Caption = 'Sair'
-      TabOrder = 2
+      TabOrder = 4
       TabStop = False
       OnClick = btnSairClick
       ExplicitTop = 435
@@ -179,7 +179,7 @@ object FCad_ControleProva: TFCad_ControleProva
       Height = 25
       Align = alTop
       Caption = 'Ajusta Posicao Geral'
-      TabOrder = 4
+      TabOrder = 1
       TabStop = False
       OnClick = btnAjustaPosGeralClick
     end
@@ -190,7 +190,7 @@ object FCad_ControleProva: TFCad_ControleProva
     Width = 1094
     Height = 41
     Align = alTop
-    TabOrder = 3
+    TabOrder = 1
     ExplicitWidth = 1092
     DesignSize = (
       1094
@@ -198,51 +198,54 @@ object FCad_ControleProva: TFCad_ControleProva
     object Label1: TLabel
       Left = 256
       Top = 11
-      Width = 48
+      Width = 42
       Height = 15
       Anchors = [akLeft, akTop, akRight, akBottom]
       Caption = 'N'#250'mero'
+      ExplicitWidth = 44
     end
     object Label2: TLabel
       Left = 608
       Top = 11
-      Width = 87
+      Width = 79
       Height = 15
       Anchors = [akLeft, akTop, akRight, akBottom]
       Caption = 'Filtro Categoria'
+      ExplicitWidth = 81
     end
     object btnSalvar: TButton
       Left = 439
       Top = 7
-      Width = 119
+      Width = 117
       Height = 25
       Anchors = [akLeft, akTop, akRight, akBottom]
       Caption = 'Salvar'
       TabOrder = 0
       OnClick = btnSalvarClick
-      ExplicitWidth = 117
+      ExplicitWidth = 115
     end
     object NR_NUMERO: TEdit
       Left = 312
       Top = 8
-      Width = 120
+      Width = 118
       Height = 23
       Anchors = [akLeft, akTop, akRight, akBottom]
       CharCase = ecUpperCase
       TabOrder = 1
-      ExplicitWidth = 118
+      ExplicitWidth = 116
     end
     object cbFiltro: TJvComboBox
       Left = 701
       Top = 8
-      Width = 249
+      Width = 247
       Height = 23
       Style = csDropDownList
       Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 2
+      TabStop = False
       Text = ''
       OnChange = cbFiltroChange
-      ExplicitWidth = 247
+      ExplicitWidth = 245
     end
   end
   object Timer: TTimer
